@@ -1,0 +1,17 @@
+Left + Right robot motor: 2->4 PWM
+Base f of 200 Hz; 
+duty cycle between 0 and 100%;
+
+Motor control signals to comm protocol; Describe protocol in lab book;
+			L Motor			R Motor
+Forwards	CW				CW
+Backwards	ACW				ACW
+Left		CW low			CW High Duty		OR 	0			CW				
+Right		CW high duty	CW low 				OR  CW			0
+
+turn motor CW: SW2 and SW3 = high; 	SW1 and SW4 low;
+turn motor ACW:SW2 and SW3 = low; 	SW1 and SW4 high;
+turn motor 0: 
+
+SW1		SW2
+SW4		SW3

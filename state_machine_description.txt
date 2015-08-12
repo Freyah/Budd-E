@@ -1,0 +1,24 @@
+// sensor calibration
+
+byte fsm_autonomous_state;
+
+scan all walls all the time - every 50 ms
+
+if (autonomous)
+{
+
+switch(fsm_autonomous_state)
+
+state forward
+
+state turning_left
+
+state turning_right
+
+state error
+}
+
+else
+{
+
+}

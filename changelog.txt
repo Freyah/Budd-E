@@ -1,0 +1,106 @@
+
+!TODO:
+	autonomous.c
+-	!DONE edit turn functions for less and more turning speed - added timing to the robot_unit '
+- 	!TODO figure out a way to make the robot turn fully around corners - need to adjust timing
+
+	motor_directions.c
+-	!TODO fix reverse controls; they are inverted: LEFT+BACK --> Reverse and right..
+-	!TODO check pin directions in new functions
+
+	robot_unit.ino
+-	!DONE make camera swivel
+-	!DONE finish adjustment settings;
+-	!DONE add button for camera rotation start 								- needs test
+-	!DONE swap joysticks around for camera control and robot control 		- needs test
+-	!TODO add in an error state 
+-	!TODO maybe remove reverse state;
+
+
+
+
+--CHANGELOG--
+
+********************
+Version:	1.7
+Date: 		02/06/2015
+Editor:		Daniel 
+
+Reduce corner speeds - reduce general speed
+increase scanning frequency
+
+
+********************
+Version:	1.6.1
+Date: 		30/05/2015
+Editor:		Daniel 
+
+WORKING
+
+autonomous.h
+-	Added adjusting type to state machine
+
+robot_unit.ino
+-	Edited to be less cluster-fucky and more organized; 
+-	Added code segment to swivel the camera left -> right and reverse; need to start at the most-left position
+-	Added timing for the 90 degree turns
+-	Added linear timing (turns based on the distance from walls) for adjustments + check if adjustment has been made in the last second
+- 	Disabled pinMode Output lines
+
+control_unit.ino
+-	Added separate control for the camera rotation; ROBOT joystick button toggles the camera rotation; sent via the byte out_buffer[4]; 
+
+********************
+Version:	1.6
+Date: 		30/05/2015
+Editor:		Daniel 
+
+autonomous.h
+autonomous.c
+
+robot_unit.ino
+-	Added adjustment option; testing is not an option
+
+
+********************
+Version:	1.5.2
+Date: 		28/05/2015
+Editor:		Daniel / Edited at Uni:
+
+Autonomous mode Works - No adjustments;
+Forwards, Reverse, Stopped are working, turning at full speed works;
+
+	
+PWM settings - only between 1480 and 1520 for reduced speed and more precision
+Made autonomous mode to work with Ports themselves rather than the setup_motor_pwm function - they are buggy for autonomous mode - reversed left/right wheels
+
+
+********************
+Version 1.5
+
+Added files: autonomous.h autonomous.c 
+
+autonomous.h
+Contains declaration of the autonomous library. Types, etc.
+
+autonomous.c
+Function definitions - not finished
+
+control_unit.ino
+Updated formulas for 3 range sensors in control unit.
+Changed if statement on line 155 to trigger on a low signal i.e. when the button is pressed.
+Changed units in the rangeF rangeL and rangeR from mm to cm - divided by 10
+Added proper software debounce for the toggle button.
+
+robot_unit.ino
+Added packets 3 and 4 in the protocol; Servo X position and autonomous state
+Prepared for autonomous control - Added if else statements
+toggle - WORKS
+Added camera servo Timer 
+Servo speed control is set up fully - WORKS
+
+
+**********************
+
+Version 1.4
+Added first autonomous attempt
